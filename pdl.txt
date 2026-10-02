@@ -1,0 +1,20 @@
+ФУНКЦИЯ group_stats(students)
+    ЕСЛИ students пуст ТО
+        ВЕРНУТЬ (0, 0)
+    КОНЕЦ ЕСЛИ
+
+    sum_score <- 0
+    count_losers <- 0
+    i <- 0
+
+    ПОКА i < длина(students)
+        sum_score <- sum_score + students[i].score
+        ЕСЛИ students[i].score < 3 ТО
+            count_losers <- count_losers + 1
+        КОНЕЦ ЕСЛИ
+        i <- i + 1
+    КОНЕЦ ПОКА
+
+    avg <- sum_score / длина(students)
+    ВЕРНУТЬ (avg, count_losers)
+КОНЕЦ ФУНКЦИИ
